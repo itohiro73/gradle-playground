@@ -1,0 +1,26 @@
+task hello << {
+    println 'Hello 世界!'
+}
+
+task upper << {
+    String someString = 'This is mY NamE'
+    println "Original: " + someString
+    println "Upper case: " + someString.toUpperCase()
+}
+
+task count << {
+    5.times { print "$it " }
+}
+
+task helloDependent(dependsOn: hello) << {
+    println "I'm Hiroshi"
+}
+
+4.times { counter -> 
+    task "dynamicTask$counter" << {
+        println "This task # is $counter"
+	}
+}
+dynamicTask0.dependsOn dynamicTask2, dynamicTask1
+
+
