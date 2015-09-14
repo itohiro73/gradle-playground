@@ -27,9 +27,23 @@ task propTest {
 	ext.prop1 = "some value"
 }
 
-# Using extra properties => https://docs.gradle.org/current/userguide/writing_build_scripts.html#sec:extra_properties
+//Using extra properties 
+// => https://docs.gradle.org/current/userguide/writing_build_scripts.html
 task printProp << {
 	println propTest.prop1
 }
 
+// Default tasks
+defaultTasks 'clean', 'run'
 
+task clean << {
+	println 'This is default clean task!'
+}
+
+task run << {
+	println 'This is default run task!'
+}
+
+task other << {
+	println 'This is NOT a default task!'
+}
