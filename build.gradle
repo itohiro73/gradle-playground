@@ -67,3 +67,10 @@ gradle.taskGraph.whenReady {taskGraph ->
 	}
 }
 
+def dest = "dest"
+
+task copy(type: Copy) {
+    from "source"
+    into dest
+}
+
